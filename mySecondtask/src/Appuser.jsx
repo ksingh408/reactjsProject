@@ -1,13 +1,16 @@
 import { useState } from "react";
 import React from "react";
 //{ id: "", name: "", email: "" }
+
+
+
 export default function UserTable({ users, onUpdate, onDelete }) {
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState();
 
   // Handle input change
   const handleChange = (e) => {
-    setFormData({ [e.target.name]: e.target.value });
+    setFormData({...formData, [e.target.name]: e.target.value });
   };
 
   // Save edited user
@@ -20,7 +23,7 @@ export default function UserTable({ users, onUpdate, onDelete }) {
     <div >
       <table className="table-auto border-collapse w-full">
         <thead>
-          <tr className="bg-gray-200">
+          <tr className="bg-gray-500">
           <th className="border px-4 py-2">Id</th>
           <th className="border px-4 py-2">Name</th>
             <th className="border px-4 py-2">Email</th>
@@ -31,7 +34,7 @@ export default function UserTable({ users, onUpdate, onDelete }) {
 
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
+            <tr  key={user.id} className="bg-gray-150 cursor-pointer hover:bg-gray-200" onClick={() => handleRowClick(user.id)}>
 
 <td className="border px-4 py-2">
                 {editId === user.id ? (
@@ -40,13 +43,13 @@ export default function UserTable({ users, onUpdate, onDelete }) {
                     name="id"
                     value={formData.id}
                     onChange={handleChange}
-                    className="border px-2 py-1"
+                    className="border px-1 py-1"
                   />
                 ) : (
                   user.id
                 )}
                 </td>
-                
+
               <td className="border px-4 py-2">
                 {editId === user.id ? (
                   <input
@@ -111,7 +114,8 @@ export default function UserTable({ users, onUpdate, onDelete }) {
                     Edit
                   </button>
                 )}
-
+              
+            
 
                 <button
                   onClick={() => onDelete(user.id)}
@@ -123,6 +127,9 @@ export default function UserTable({ users, onUpdate, onDelete }) {
 
               </td>
             </tr>
+
+
+
           ))}
         </tbody>
       </table>
