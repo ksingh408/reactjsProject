@@ -3,17 +3,7 @@ import React from "react";
 
 
 export default function UserTable({ user }) {
-  //const [editMode, setEditMode] = useState(false);
-  //const [formData, setFormData] = useState(user);
-
-  // const handleChange = (e) => {
-  //   setFormData({ ...formData, [e.target.name]: e.target.value });
-  // };
-
-  // const handleSave = () => {
-  //   onUpdate(formData);
-  //   setEditMode(false);
-  // };
+  
 
   return (
     
