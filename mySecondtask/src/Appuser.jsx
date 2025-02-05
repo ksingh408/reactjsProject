@@ -8,12 +8,12 @@ export default function UserTable({ users, onUpdate, onDelete }) {
   const [editId, setEditId] = useState(null);
   const [formData, setFormData] = useState();
 
-  // Handle input change
+  
   const handleChange = (e) => {
     setFormData({...formData, [e.target.name]: e.target.value });
   };
 
-  // Save edited user
+  
   const handleSave = () => {
     onUpdate(formData);
     setEditId(null);
