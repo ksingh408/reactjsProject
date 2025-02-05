@@ -11,12 +11,7 @@ let userData=[
 
 
  function App() {
- // const [user, setUser] = useState({ name: "John Doe", age: 25 });
 
- // const [user, setUser] = useState();
- // const handleUpdate = (updatedUser) => {
- //   setUser(updatedUser);
-  //};
 
   return (
     <div className="p-4">
